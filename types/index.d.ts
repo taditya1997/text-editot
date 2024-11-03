@@ -73,6 +73,7 @@ declare type SearchParamProps = {
   declare type AddDocumentBtnProps = {
     userId: string;
     email: string;
+    className?: string;
   };
   
   declare type DeleteModalProps = { roomId: string };
