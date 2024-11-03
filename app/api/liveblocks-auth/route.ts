@@ -8,7 +8,7 @@ export async function POST(request: Request) {
 
   const clerkUser = await currentUser();
 
-
+   console.log("clerkuser",clerkUser)
   if (!currentUser) redirect("/sign-in");
 
   const { id, firstName, lastName, emailAddresses, imageUrl } = clerkUser;
