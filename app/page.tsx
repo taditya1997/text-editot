@@ -15,7 +15,6 @@ import React from "react";
 export default async function Home() {
   const clerkUser = await currentUser();
   const rooms = await getDocuments(clerkUser?.emailAddresses[0]?.emailAddress);
-  console.log("clerUser", clerkUser);
 
   if (!clerkUser) redirect("/sign-in");
 
@@ -64,13 +63,21 @@ export default async function Home() {
           </ul>
         </div>
       ) : (
-        <div className="document-list-empty">
+        <div className="flex flex-col items-center justify-center mt-20 gap-6">
           <Image
             src="/assets/icons/doc.svg"
             alt="Documents"
-            width={40}
-            height={40}
+            width={80}
+            height={80}
           />
+          <div className="flex flex-col items-center gap-3">
+            <p className="text-slate-400">No documents yet. Create one to get started!</p>
+            <AddDocument
+              userId={clerkUser.id}
+              email={clerkUser.emailAddresses[0].emailAddress}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md"
+            />
+          </div>
         </div>
       )}
     </main>

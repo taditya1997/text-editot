@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { createDocument } from "@/lib/actions/rooms.actions";
 
-const AddDocument = ({ userId, email }: AddDocumentBtnProps) => {
+const AddDocument = ({ userId, email,className }: AddDocumentBtnProps) => {
   const router = useRouter();
   const addDocumentHandler = async () => {
     try {
@@ -20,7 +20,7 @@ const AddDocument = ({ userId, email }: AddDocumentBtnProps) => {
     <Button
       type="submit"
       onClick={addDocumentHandler}
-      className="gradient-blue flex gap-1 shadow-md"
+      className={className || "gradient-blue flex gap-1 shadow-md"}
     >
       <Image src="/assets/icons/add.svg" alt="add" width={24} height={24} />
       <p className="hidden sm:block">Start a Blank Document</p>
