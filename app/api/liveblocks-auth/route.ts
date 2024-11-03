@@ -22,7 +22,7 @@ export async function POST(request: Request) {
     info:{
         id,
         name:`${firstName} ${lastName}`,
-        email:emailAddresses[0].emailAddress,
+        email:emailAddresses[0]?.emailAddress,
         avatar:imageUrl,
         color:getUserColor(id)
 
